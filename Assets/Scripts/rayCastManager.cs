@@ -47,18 +47,21 @@ public class rayCastManager : MonoBehaviour {
     {
         if (Started)
         {
+            
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, 1000, plantObjLayerMask))
             {
+                
+
 
                 touchParticle.transform.position = hit.point;
 
                 Debug.DrawRay(hit.point, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
 
-
+                Debug.Log(hit.collider.gameObject.tag);
 
                 if (hit.collider.gameObject.tag == "exThitMid")
                 {
